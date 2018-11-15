@@ -17,7 +17,7 @@ int main() {
 
 
 //사용자 타입 cout하기 cin 하기
-#if 1
+#if 0
 #include<iostream>
 using namespace std;
 class Complex {

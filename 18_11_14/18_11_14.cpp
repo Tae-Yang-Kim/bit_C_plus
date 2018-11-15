@@ -1,5 +1,5 @@
-#include <iostream>
-using namespace std;
+//#include <iostream>
+//using namespace std;
 
 #if 0
 /*
@@ -331,7 +331,7 @@ int main() {
 }
 #endif
 
-#if 1
+#if 0
 //데이터 컨테이너
 template<typename T>
 struct Node {
@@ -346,12 +346,33 @@ class slist {
 public:
 	slist() :head(0) { }
 	void push_front(const T& a) { head = new Node<T>(a, head); }
+	T pop_front() {
+		Node<T> *temp = new Node<T>(head->data, head);
+		T data;
+		data = temp->data;
+		head = head->next;
+		delete temp;
+
+		return data;
+	}
+	void show() {
+		Node<T>* temp;
+		for (temp = head; temp != 0; temp = temp->next) {
+			cout << "data:  " << temp->data << endl;
+		}
+	}
 };
 int main() {
 	slist<int> s;
 	s.push_front(10);
 	s.push_front(20);
 	s.push_front(30);
+
+	s.show();
+
+	cout << s.pop_front() << endl;
+
+	s.show();
 
 }
 #endif
